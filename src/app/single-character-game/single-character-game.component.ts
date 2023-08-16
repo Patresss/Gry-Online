@@ -1,18 +1,18 @@
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, Input, OnDestroy, OnInit} from "@angular/core";
 
 @Component({
   selector: 'app-single-character-game',
   templateUrl: './single-character-game.component.html',
   styleUrls: ['./single-character-game.component.css']
 })
-export class SingleCharacterGameComponent implements OnInit {
+export class SingleCharacterGameComponent implements OnInit, OnDestroy  {
 
   @Input() availableCharacters: string = '';
   @Input() assetFolder: string = '';
 
   currentCharacter: string = '';
   isTransitioning: boolean = false;
-
+  keyListener = (event: KeyboardEvent) => this.handleKeyPress(event);
 
   ngOnInit(): void {
     this.initGame();
@@ -20,7 +20,11 @@ export class SingleCharacterGameComponent implements OnInit {
 
   initGame(): void {
     this.updateCharacter();
-    document.addEventListener( 'keydown', (event) => this.handleKeyPress(event));
+    document.addEventListener( 'keydown', this.keyListener);
+  }
+
+  ngOnDestroy() {
+    document.removeEventListener('keydown', this.keyListener);
   }
 
   private getRandomCharacter(): string {
