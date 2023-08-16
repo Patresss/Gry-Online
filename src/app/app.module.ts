@@ -8,9 +8,19 @@ import { MainPageComponent } from './main-page/main-page.component';
 import {SingleCharacterGameComponent} from "./single-character-game/single-character-game.component";
 import {SingleLetterGameComponent} from "./single-letter-game/single-letter-game.component";
 import {SingleDigitGameComponent} from "./single-digit-game/single-digit-game.component";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatRippleModule} from "@angular/material/core";
 
 
 const routes: Routes = [
+  {
+    path: '',
+    component: MainPageComponent,
+    data: {
+      title: 'Gry Online'
+    }
+  },
   {
     path: 'pojedyncza-litera',
     component: SingleLetterGameComponent,
@@ -41,7 +51,10 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     RouterOutlet,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
+    MatGridListModule,
+    MatRippleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

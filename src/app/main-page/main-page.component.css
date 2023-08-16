@@ -1,3 +1,24 @@
-.card {
+.card-container {
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    text-align: center;
+
+    width: 40vw;
+    height: 40vh;
+    font-size: 36px; /* Dostosuj wielkość tekstu */
+    background-color: #3b92dc; /* Dostosuj kolor tła */
+    color: white; /* Dostosuj kolor tekstu */
+    text-decoration: none; /* Usuń domyślne podkreślenie */
+    border-radius: 8px; /* Dodaj zaokrąglenie krawędzi */
+    transition: background-color 0.2s, transform 0.2s; /* Dodałem efekty przejścia */
+}
+
+.card-container:hover {
+    background-color: #2980b9; /* Zmiana koloru tła na hoverze */
+    transform: scale(1.05); /* Trochę przybliż na hoverze */
 }

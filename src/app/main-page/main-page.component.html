@@ -1,8 +1,12 @@
-<div>
-    <a routerLink="/pojedyncza-litera">Pojedyńcza litera</a>
-</div>
-
-<p>
-    <a routerLink="/pojedyncza-cyfra">Pojedyńcza cyfra</a>
-</p>
-
+<mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+        <a class="card-container mat-elevation-z4" matRipple routerLink="/pojedyncza-litera">
+            Pojedyńcza litera
+        </a>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <a class="card-container mat-elevation-z4" matRipple routerLink="/pojedyncza-cyfra">
+            Pojedyńcza cyfra
+        </a>
+    </mat-grid-tile>
+</mat-grid-list>
