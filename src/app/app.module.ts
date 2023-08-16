@@ -2,16 +2,18 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { SingleLetterGameComponent } from './single-letter-game/single-letter-game.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import {RouterModule, RouterOutlet, Routes} from "@angular/router";
 import { MainPageComponent } from './main-page/main-page.component';
+import {SingleCharacterGameComponent} from "./single-character-game/single-character-game.component";
+import {SingleLetterGameComponent} from "./single-letter-game/single-letter-game.component";
 
 
 const routes: Routes = [
   {
-    path: 'SingleLetterGame',
+    path: 'pojedyncza-litera',
     component: SingleLetterGameComponent,
+
     data: {
       title: 'Literki na klawiaturze'
     }
@@ -21,6 +23,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    SingleCharacterGameComponent,
     SingleLetterGameComponent,
     ToolbarComponent,
     MainPageComponent,

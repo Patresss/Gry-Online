@@ -8,7 +8,7 @@ import {filter} from "rxjs";
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent {
-  pageTitle: string = 'Gry Online 1.10';
+  pageTitle: string = 'Gry Online 1.11';
 
   constructor(private router: Router) {
     this.router.events.pipe(
@@ -20,7 +20,7 @@ export class ToolbarComponent {
 
   private updatePageTitle() {
     let currentRoute = this.router.routerState.snapshot.root;
-    let title = 'Gry Online  1.10';
+    let title = 'Gry Online  1.11';
 
     while (currentRoute) {
       if (currentRoute.data && currentRoute.data['title']) {

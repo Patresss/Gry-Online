@@ -17,7 +17,7 @@
   border: 2px solid #333;
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.8); /* Zmieniona wartość przeźroczystości cienia */
+  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.8);
   position: relative;
 }
 
