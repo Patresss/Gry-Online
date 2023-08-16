@@ -24,8 +24,9 @@ export class SingleCharacterGameComponent implements OnInit {
   }
 
   private getRandomCharacter(): string {
-    const randomIndex = Math.floor(Math.random() * this.availableCharacters.length);
-    return this.availableCharacters[randomIndex];
+    const availableCharactersWithoutCurrentCharacter = this.availableCharacters.replace(this.currentCharacter, '');
+    const randomIndex = Math.floor(Math.random() * availableCharactersWithoutCurrentCharacter.length);
+    return availableCharactersWithoutCurrentCharacter[randomIndex];
   }
 
   private updateCharacter(): void {

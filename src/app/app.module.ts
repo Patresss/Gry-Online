@@ -7,6 +7,7 @@ import {RouterModule, RouterOutlet, Routes} from "@angular/router";
 import { MainPageComponent } from './main-page/main-page.component';
 import {SingleCharacterGameComponent} from "./single-character-game/single-character-game.component";
 import {SingleLetterGameComponent} from "./single-letter-game/single-letter-game.component";
+import {SingleDigitGameComponent} from "./single-digit-game/single-digit-game.component";
 
 
 const routes: Routes = [
@@ -18,6 +19,14 @@ const routes: Routes = [
       title: 'Literki na klawiaturze'
     }
   },
+  {
+    path: 'pojedyncza-cyfra',
+    component: SingleDigitGameComponent,
+
+    data: {
+      title: 'Cyferki na klawiaturze'
+    }
+  },
 ];
 
 @NgModule({
@@ -25,6 +34,7 @@ const routes: Routes = [
     AppComponent,
     SingleCharacterGameComponent,
     SingleLetterGameComponent,
+    SingleDigitGameComponent,
     ToolbarComponent,
     MainPageComponent,
   ],
