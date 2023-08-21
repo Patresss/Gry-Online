@@ -1,0 +1,27 @@
+<div class="game-window">
+  <div class="game-content">
+
+    <app-game-progress-bar [progress]="progress"></app-game-progress-bar>
+
+    <div class="game-container">
+
+      <mat-grid-list cols="4" rowHeight="2:3">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <img ngSrc="{{imageSrc}}" alt="Character Image" class="character-image" fill=""/>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="3" [rowspan]="1">
+          <div class="word-container">
+              <ng-container *ngFor="let letter of currentWord; let i = index">
+              <span class = "character-display" [id]="'character-' + i"
+                [class.notGuessed]="i > guessingCharacterIndex"
+                [class.guessed]="i < guessingCharacterIndex"
+                [class.current]="i === guessingCharacterIndex"
+              >{{ letter }}</span>
+              </ng-container>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+
+  </div>
+</div>

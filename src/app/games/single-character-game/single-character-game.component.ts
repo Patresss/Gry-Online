@@ -1,11 +1,11 @@
 import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from "@angular/core";
 import {MatDialog} from "@angular/material/dialog";
-import {GameDialogComponent} from "../game-dialog/game-dialog.component";
+import {GameDialogComponent} from "../../game-dialog/game-dialog.component";
 
 @Component({
   selector: 'app-single-character-game',
   templateUrl: './single-character-game.component.html',
-  styleUrls: ['./single-character-game.component.css']
+  styleUrls: ['../game.component.css']
 })
 export class SingleCharacterGameComponent implements OnInit, OnDestroy, OnChanges {
 
@@ -13,6 +13,7 @@ export class SingleCharacterGameComponent implements OnInit, OnDestroy, OnChange
 
   @Input() availableCharacters: string = '';
   @Input() assetFolder: string = '';
+  @Input() charactersColspan: number = 2;
 
   progressStep: number = 10;
   progress: number = 0;

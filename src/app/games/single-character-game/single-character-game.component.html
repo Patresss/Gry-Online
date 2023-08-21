@@ -1,0 +1,21 @@
+<div class="game-window">
+  <div class="game-content">
+
+    <app-game-progress-bar [progress]="progress"></app-game-progress-bar>
+
+    <div class="game-container">
+
+    <mat-grid-list cols="4" rowHeight="2:3">
+      <mat-grid-tile [colspan]="4 - charactersColspan" [rowspan]="1">
+        <img  ngSrc="{{imageSrc}}" alt="Character Image" class="character-image" fill=""/>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="charactersColspan" [rowspan]="1">
+        <div class="character-display single-character-display" id="character-display" tabindex="0">{{ currentCharacter }}</div>
+      </mat-grid-tile>
+    </mat-grid-list>
+    </div>
+
+
+
+  </div>
+</div>

@@ -5,9 +5,9 @@ import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import {RouterModule, RouterOutlet, Routes} from "@angular/router";
 import { MainPageComponent } from './main-page/main-page.component';
-import {SingleCharacterGameComponent} from "./single-character-game/single-character-game.component";
-import {SingleLetterGameComponent} from "./single-letter-game/single-letter-game.component";
-import {SingleDigitGameComponent} from "./single-digit-game/single-digit-game.component";
+import {SingleCharacterGameComponent} from "./games/single-character-game/single-character-game.component";
+import {SingleLetterGameComponent} from "./games/single-letter-game/single-letter-game.component";
+import {SingleDigitGameComponent} from "./games/single-digit-game/single-digit-game.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatRippleModule} from "@angular/material/core";
@@ -16,6 +16,7 @@ import {NgOptimizedImage} from "@angular/common";
 import { GameDialogComponent } from './game-dialog/game-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
+import { MultiCharactersGameComponent } from './games/multi-characters-game/multi-characters-game.component';
 
 
 const routes: Routes = [
@@ -42,6 +43,14 @@ const routes: Routes = [
       title: 'Cyferki na klawiaturze'
     }
   },
+  {
+    path: 'wyrazy',
+    component: MultiCharactersGameComponent,
+
+    data: {
+      title: 'Wyrazy'
+    }
+  },
 ];
 
 @NgModule({
@@ -55,6 +64,7 @@ const routes: Routes = [
     GameProgressBarComponent,
     GameProgressBarComponent,
     GameDialogComponent,
+    MultiCharactersGameComponent,
   ],
   imports: [
     BrowserModule,
