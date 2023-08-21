@@ -1,0 +1,28 @@
+.progress-container {
+  height: 50px;
+  display: flex;
+  width: 100%;
+}
+
+.character-path {
+  width: calc(100% - 50px - 30px); /* - character - food*/
+}
+
+.character {
+  position: relative;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  background-image: url('src/assets/images/mouse.svg');
+  background-size: cover;
+}
+
+.food {
+  margin-left: auto;
+  margin-right: 0;
+  width: 50px;
+  height: 50px;
+  background-image: url('src/assets/images/cheese.svg');
+  background-size: cover;
+
+}

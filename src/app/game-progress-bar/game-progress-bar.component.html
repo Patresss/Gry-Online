@@ -1,0 +1,12 @@
+<div class="progress-container">
+
+  <div class="character-path" >
+    <div
+      class="character"
+      [@characterAnimation]="{ value: progress, params: { progress: progress, initialLeft: initialLeft, animationDuration: animationDuration } }"
+      [style.left.%]="progress"
+    ></div>
+  </div>
+  <div class="food">
+  </div>
+</div>

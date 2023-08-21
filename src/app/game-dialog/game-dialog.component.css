@@ -1,0 +1,10 @@
+h1 {
+  text-align: center;
+  font-size: 332px;
+}
+
+.dialog {
+  max-width: 300px;
+  padding: 20px;
+  position: relative;
+}

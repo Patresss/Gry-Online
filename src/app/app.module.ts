@@ -11,6 +11,11 @@ import {SingleDigitGameComponent} from "./single-digit-game/single-digit-game.co
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatRippleModule} from "@angular/material/core";
+import { GameProgressBarComponent } from './game-progress-bar/game-progress-bar.component';
+import {NgOptimizedImage} from "@angular/common";
+import { GameDialogComponent } from './game-dialog/game-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatButtonModule} from "@angular/material/button";
 
 
 const routes: Routes = [
@@ -47,6 +52,9 @@ const routes: Routes = [
     SingleDigitGameComponent,
     ToolbarComponent,
     MainPageComponent,
+    GameProgressBarComponent,
+    GameProgressBarComponent,
+    GameDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +62,10 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     MatGridListModule,
-    MatRippleModule
+    MatRippleModule,
+    NgOptimizedImage,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

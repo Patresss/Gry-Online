@@ -1,36 +1,62 @@
-import {Component, Input, OnDestroy, OnInit} from "@angular/core";
+import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from "@angular/core";
+import {MatDialog} from "@angular/material/dialog";
+import {GameDialogComponent} from "../game-dialog/game-dialog.component";
 
 @Component({
   selector: 'app-single-character-game',
   templateUrl: './single-character-game.component.html',
   styleUrls: ['./single-character-game.component.css']
 })
-export class SingleCharacterGameComponent implements OnInit, OnDestroy  {
+export class SingleCharacterGameComponent implements OnInit, OnDestroy, OnChanges {
+
+  constructor(public dialog: MatDialog) {}
 
   @Input() availableCharacters: string = '';
   @Input() assetFolder: string = '';
 
+  progressStep: number = 10;
+  progress: number = 0;
   currentCharacter: string = '';
+  imageSrc: string = '';
   isTransitioning: boolean = false;
   keyListener = (event: KeyboardEvent) => this.handleKeyPress(event);
 
   ngOnInit(): void {
+    document.addEventListener( 'keydown', this.keyListener);
     this.initGame();
   }
 
   initGame(): void {
+    this.progress = 0;
     this.updateCharacter();
-    document.addEventListener( 'keydown', this.keyListener);
   }
 
   ngOnDestroy() {
     document.removeEventListener('keydown', this.keyListener);
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("test")
+    console.log(changes["progress"])
+    if (changes["progress"] && changes["progress"].currentValue >= 100) {
+      this.initGame();
+      this.openDialog();
+    }
+  }
+
   private getRandomCharacter(): string {
     const availableCharactersWithoutCurrentCharacter = this.availableCharacters.replace(this.currentCharacter, '');
     const randomIndex = Math.floor(Math.random() * availableCharactersWithoutCurrentCharacter.length);
     return availableCharactersWithoutCurrentCharacter[randomIndex];
+  }
+
+  private handleCorrect(): void {
+    this.progress += this.progressStep;
+    if (this.progress >= 100) {
+      this.openDialog();
+    } else {
+      this.updateCharacter();
+    }
   }
 
   private updateCharacter(): void {
@@ -40,8 +66,7 @@ export class SingleCharacterGameComponent implements OnInit, OnDestroy  {
 
     this.playSound(this.currentCharacter);
 
-    const letterImage: HTMLImageElement = document.getElementById('character-image') as HTMLImageElement;
-    letterImage.src = `assets/${this.assetFolder}/images/${this.currentCharacter}.jpg`;
+    this.imageSrc = `assets/${this.assetFolder}/images/${this.currentCharacter}.jpg`;
     this.isTransitioning = false;
   }
 
@@ -56,7 +81,7 @@ export class SingleCharacterGameComponent implements OnInit, OnDestroy  {
         characterDisplay.classList.remove("wrong");
         characterDisplay.classList.add("correct");
         setTimeout(() => {
-          this.updateCharacter();
+          this.handleCorrect();
         }, 500);
       } else {
         characterDisplay.classList.add("wrong");
@@ -70,6 +95,21 @@ export class SingleCharacterGameComponent implements OnInit, OnDestroy  {
   private playSound(letter: string): void {
     const audio = new Audio(`assets/${this.assetFolder}/audio/${letter}.mp3`);
     audio.play();
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(GameDialogComponent, {
+      width: '300px',
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '500ms',
+      data: {
+        dialogTitle: 'Wygrałeś!'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.initGame();
+    });
   }
 
 }
