@@ -37,8 +37,6 @@ export class SingleCharacterGameComponent implements OnInit, OnDestroy, OnChange
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("test")
-    console.log(changes["progress"])
     if (changes["progress"] && changes["progress"].currentValue >= 100) {
       this.initGame();
       this.openDialog();
@@ -65,7 +63,7 @@ export class SingleCharacterGameComponent implements OnInit, OnDestroy, OnChange
     const characterDisplay: HTMLDivElement = document.getElementById('character-display') as HTMLDivElement;
     characterDisplay.classList.remove("correct");
 
-    this.playSound(this.currentCharacter);
+    this.playSound();
 
     this.imageSrc = `assets/${this.assetFolder}/images/${this.currentCharacter}.jpg`;
     this.isTransitioning = false;
@@ -93,8 +91,8 @@ export class SingleCharacterGameComponent implements OnInit, OnDestroy, OnChange
     }
   }
 
-  private playSound(letter: string): void {
-    const audio = new Audio(`assets/${this.assetFolder}/audio/${letter}.mp3`);
+  public playSound(): void {
+    const audio = new Audio(`assets/${this.assetFolder}/audio/${this.currentCharacter}.mp3`);
     audio.play();
   }
 

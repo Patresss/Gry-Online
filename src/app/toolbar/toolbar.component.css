@@ -5,6 +5,7 @@
   color: white;
   height: 60px;
   padding: 0 20px;
+  font-weight: bold;
 }
 
 .home-link {
@@ -30,5 +31,5 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 32px;
+  font-size: 36px;
 }

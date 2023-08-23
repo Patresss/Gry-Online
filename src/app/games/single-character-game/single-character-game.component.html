@@ -3,7 +3,7 @@
 
     <app-game-progress-bar [progress]="progress"></app-game-progress-bar>
 
-    <div class="game-container">
+    <div class="game-container" (click)="playSound()">
 
     <mat-grid-list cols="4" rowHeight="2:3">
       <mat-grid-tile [colspan]="4 - charactersColspan" [rowspan]="1">

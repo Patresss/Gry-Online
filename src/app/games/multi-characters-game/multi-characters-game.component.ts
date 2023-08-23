@@ -56,6 +56,8 @@ export class MultiCharactersGameComponent implements OnInit, OnDestroy, OnChange
   }
 
   private handleCorrectLetter(): void {
+    this.playCharacter();
+
     this.guessingCharacterIndex++;
     if (this.guessingCharacterIndex >= this.currentWord.length) {
       this.handleCorrectWord();
@@ -69,25 +71,23 @@ export class MultiCharactersGameComponent implements OnInit, OnDestroy, OnChange
     if (this.progress >= 100) {
       this.openDialog();
     } else {
-      this.updateWord();
+      setTimeout(() => {
+        this.updateWord();
+      }, 300);
     }
   }
 
   private updateCharacter(): void {
-    if (this.guessingCharacterIndex > 0) {
-      this.playCharacter(this.currentWord[this.guessingCharacterIndex]);
-    }
     this.isTransitioning = false;
   }
 
   private updateWord(): void {
-    this.currentWord = this.getRandomWord();
     this.guessingCharacterIndex = 0;
+    this.currentWord = this.getRandomWord();
 
     const currentWordAsString = this.currentWord.join('');
 
-    this.playSound(currentWordAsString);
-    this.imageSrc = `assets/${this.assetFolder}/images/A.jpg`;
+    this.playSound();
     this.imageSrc = `assets/${this.assetFolder}/images/${currentWordAsString}.jpg`;
     this.isTransitioning = false;
   }
@@ -115,13 +115,13 @@ export class MultiCharactersGameComponent implements OnInit, OnDestroy, OnChange
     }
   }
 
-  private playSound(word: string): void {
-    const audio = new Audio(`assets/${this.assetFolder}/audio/${word}.mp3`);
+  playSound(): void {
+    const audio = new Audio(`assets/${this.assetFolder}/audio/${this.currentWord.join('')}.mp3`);
     audio.play();
   }
 
-  private playCharacter(character: string): void {
-    const audio = new Audio(`assets/letters/audio/${character}.mp3`);
+  playCharacter(): void {
+    const audio = new Audio(`assets/letters/audio/${this.currentWord[this.guessingCharacterIndex]}.mp3`);
     audio.play();
   }
 
