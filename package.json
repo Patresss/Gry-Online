@@ -6,8 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "babel": "ng build && babel ./dist/gry-online -d ./dist/gry-online",
+    "build-lg": "ng build && babel ./dist/gry-online -d ./dist/gry-online",
     "deploy": "xcopy /s /e dist\\gry-online \\\\PatrykNas\\web\\Gry",
-    "build-and-deploy": "ng build && && xcopy /s /e /y dist\\gry-online \\\\PatrykNas\\web\\Gry",
+    "build-and-deploy": "ng build && && xcopy /s /e /y dist\\gry-online \\\\192.168.1.58\\web\\Gry",
     "build-and-deploy-lg": "ng build && babel ./dist/gry-online -d ./dist/gry-online && xcopy /s /e /y dist\\gry-online \\\\PatrykNas\\web\\Gry",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

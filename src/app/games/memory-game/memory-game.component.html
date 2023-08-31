@@ -1,0 +1,18 @@
+<div class="memory-grid">
+  <div class="memory-row" *ngFor="let rowCard of rowCards">
+    <div *ngFor="let card of rowCard" (click)="flipCard(card)" class="memory-card"
+         [ngClass]="{'flipped': card.isFlipped || card.isHidden, 'hidden': card.isHidden}">
+      <div class="card-face card-front">
+        <div class="card-face card-front">
+          <div class="card-text">
+            {{card.imageName}}
+          </div>
+          <img [src]="card.imageUrl" alt="Memory Card">
+        </div>
+        <div class="card-face card-back" *ngIf="!card.isHidden">
+          <!-- Tutaj możesz dodać jakiś obrazek lub kolor dla tylnej strony karty -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

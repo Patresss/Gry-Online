@@ -17,6 +17,7 @@ import { GameDialogComponent } from './game-dialog/game-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import { MultiCharactersGameComponent } from './games/multi-characters-game/multi-characters-game.component';
+import { MemoryGameComponent } from './games/memory-game/memory-game.component';
 
 
 const routes: Routes = [
@@ -51,6 +52,14 @@ const routes: Routes = [
       title: 'Wyrazy'
     }
   },
+  {
+    path: 'memory',
+    component: MemoryGameComponent,
+
+    data: {
+      title: 'Memory'
+    }
+  },
 ];
 
 @NgModule({
@@ -65,6 +74,7 @@ const routes: Routes = [
     GameProgressBarComponent,
     GameDialogComponent,
     MultiCharactersGameComponent,
+    MemoryGameComponent,
   ],
   imports: [
     BrowserModule,
