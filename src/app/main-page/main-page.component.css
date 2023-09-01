@@ -1,10 +1,7 @@
 .main-page {
-  min-height: calc(100vh - 60px); /* 60px bo navbar*/
-
 }
 
 .card-container {
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,9 +11,9 @@
     text-align: center;
 
     width: 40vw;
-    height: 40vh;
+    height: 300px;
     font-size: 36px; /* Dostosuj wielkość tekstu */
-    background-color: #3b92dc; /* Dostosuj kolor tła */
+    background-color: #4fc0ff; /* Dostosuj kolor tła */
     color: white; /* Dostosuj kolor tekstu */
     text-decoration: none; /* Usuń domyślne podkreślenie */
     border-radius: 8px; /* Dodaj zaokrąglenie krawędzi */
