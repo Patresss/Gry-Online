@@ -19,7 +19,6 @@ import {MatButtonModule} from "@angular/material/button";
 import { MultiCharactersGameComponent } from './games/multi-characters-game/multi-characters-game.component';
 import { MemoryGameComponent } from './games/memory-game/memory-game.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -79,7 +78,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     RouterOutlet,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { useHash: true }),
     BrowserAnimationsModule,
     MatGridListModule,
     MatRippleModule,

@@ -6,7 +6,6 @@ import { MemoryCard } from './memory.model';
 })
 export class MemoryService {
 
-  private readonly numberOfPairs = 6;
   private images: string[] = [
     'A',
     'B',
@@ -33,11 +32,11 @@ export class MemoryService {
     'Z',
   ];
 
-  generateCards(): MemoryCard[] {
+  generateCards(numberOfPairs: number): MemoryCard[] {
     let cards: MemoryCard[] = [];
 
     this.shuffle(this.images)
-      .slice(0, this.numberOfPairs)
+      .slice(0, numberOfPairs)
       .forEach((name, index) => {
           let card1: MemoryCard = { id: index * 2, imageUrl: `assets/single-letter/images/${name}.jpg`, imageName: name, isFlipped: false, isHidden: false };
           let card2: MemoryCard = { id: index * 2 + 1, imageUrl: `assets/single-letter/images/${name}.jpg`, imageName: name, isFlipped: false, isHidden: false };

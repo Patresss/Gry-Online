@@ -67,7 +67,6 @@ export class MultiCharactersGameComponent implements OnInit, OnDestroy, OnChange
   }
 
   private handleCorrectWord(): void {
-    this.progress += this.progressStep;
     if (this.progress >= 100) {
       this.openDialog();
     } else {

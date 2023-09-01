@@ -1,4 +1,11 @@
+<div class="game-window">
+
+<div class="memory-progress-bar">
+  <app-game-progress-bar [progress]="progress"></app-game-progress-bar>
+</div>
+
 <div class="memory-grid">
+
   <div class="memory-row" *ngFor="let rowCard of rowCards">
     <div *ngFor="let card of rowCard" (click)="flipCard(card)" class="memory-card"
          [ngClass]="{'flipped': card.isFlipped || card.isHidden, 'hidden': card.isHidden}">
@@ -14,4 +21,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

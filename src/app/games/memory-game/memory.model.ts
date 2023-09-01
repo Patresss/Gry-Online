@@ -5,3 +5,18 @@ export interface MemoryCard {
   isFlipped: boolean;
   isHidden: boolean;
 }
+
+
+export interface MemoryLevel {
+  level: number;
+  numberOfPairs: number;
+  cardsInRow: number;
+}
+
+
+export const MEMORY_LEVELS: MemoryLevel[] = [
+  { level: 1, numberOfPairs: 2, cardsInRow: 2},
+  { level: 2, numberOfPairs: 4, cardsInRow: 4},
+  { level: 3, numberOfPairs: 6, cardsInRow: 4},
+];
+
