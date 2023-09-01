@@ -46,10 +46,13 @@ export class MemoryGameComponent implements OnInit {
   }
 
   private checkWin(): void {
-    if (this.cards.every(card => card.isHidden)) {
+    if (this.areAllCardsHidden()) {
       this.openDialog();
-      setTimeout(() => this.resetGame(), 3000);
     }
+  }
+
+  private areAllCardsHidden() {
+    return this.cards.every(card => card.isHidden);
   }
 
   private resetGame(): void {
@@ -72,7 +75,9 @@ export class MemoryGameComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.resetGame();
+      if (this.areAllCardsHidden()) { // user
+        this.resetGame();
+      }
     });
   }
 
