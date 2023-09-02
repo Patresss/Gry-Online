@@ -10,11 +10,12 @@
     <div class="game-container-with-buttons">
       <div class="word-buttons">
         <input type="file" #fileInput (change)="onFilesSelected($event)" multiple style="display: none;">
-        <button mat-fab aria-label="Wybierz własne obrazki/słowa" (click)="fileInput.click()">
+
+        <button mat-fab aria-label="Wybierz własne słowa" (click)="fileInput.click()" matTooltip="Wybierz własne obrazki/słowa. Założenie jest takie, że dziecku będzie pisało MAMA gdy obok będzie zdjęcie jego mamy itd. Zdjęcia nie są przechowywane po stronie serwera, tylko są w danych przeglądarki (można podglądnać kod źródłowy) ">
           <mat-icon>folder</mat-icon>
         </button>
 
-        <button mat-fab aria-label="Przywróć domyślne obrazki/słowa" (click)="restoreToDefault()">
+        <button mat-fab aria-label="Przywróć domyślne słowa" (click)="restoreToDefault()" matTooltip="Przywróć domyślne słowa">
           <mat-icon>refresh</mat-icon>
         </button>
       </div>
