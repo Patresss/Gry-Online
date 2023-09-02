@@ -73,7 +73,11 @@
 }
 
 .word-buttons {
-  padding-right: 20px;
+  & button {
+    color: var(--light-text-color);
+    background-color: var(--primary-color);
+    margin-bottom: 20px;
+  }
 }
 
 .game-container-with-buttons {

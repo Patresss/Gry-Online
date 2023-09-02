@@ -1,4 +1,5 @@
 export interface Word {
-  file: File;
+  file?: File;
   name: string;
+  assetSource?: string;
 }

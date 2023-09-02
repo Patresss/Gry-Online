@@ -8,21 +8,25 @@
     <app-game-progress-bar [progress]="progress"></app-game-progress-bar>
 
     <div class="game-container-with-buttons">
-      <div *ngIf="!filesSelected" class="word-buttons">
+      <div class="word-buttons">
         <input type="file" #fileInput (change)="onFilesSelected($event)" multiple style="display: none;">
-        <button mat-fab color="primary" aria-label="Example icon button with a browse icon" (click)="fileInput.click()">
+        <button mat-fab aria-label="Wybierz własne obrazki/słowa" (click)="fileInput.click()">
           <mat-icon>folder</mat-icon>
+        </button>
+
+        <button mat-fab aria-label="Przywróć domyślne obrazki/słowa" (click)="restoreToDefault()">
+          <mat-icon>refresh</mat-icon>
         </button>
       </div>
 
       <div class="game-container" >
         <mat-grid-list cols="4" rowHeight="2:3">
           <mat-grid-tile [colspan]="1" [rowspan]="1">
-            <img priority="true" ngSrc="{{imageSrc}}" alt="Character Image" class="character-image" fill=""/>
+            <img *ngIf="imageSrc" src="{{imageSrc}}" alt="Character Image" class="character-image"/>
           </mat-grid-tile>
           <mat-grid-tile [colspan]="3" [rowspan]="1">
             <div (click)="playCharacter()" class="word-container">
-              <ng-container *ngFor="let letter of currentWord; let i = index">
+              <ng-container *ngFor="let letter of currentWord?.name?.split(''); let i = index">
               <span class = "character-display" [id]="'character-' + i"
                     [class.notGuessed]="i > guessingCharacterIndex"
                     [class.guessed]="i < guessingCharacterIndex"

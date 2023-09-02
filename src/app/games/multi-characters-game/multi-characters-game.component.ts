@@ -3,8 +3,6 @@ import {MatDialog} from "@angular/material/dialog";
 import {GameDialogComponent} from "../../game-dialog/game-dialog.component";
 import {WordDatabaseService} from "./word-database.service";
 import {Word} from "./word.model";
-import {MatButtonModule} from "@angular/material/button";
-import {MatIconModule} from "@angular/material/icon";
 
 @Component({
     selector: 'app-multi-characters-game',
@@ -16,18 +14,16 @@ export class MultiCharactersGameComponent implements OnInit, OnDestroy, OnChange
     constructor(public dialog: MatDialog, public wordDatabaseService: WordDatabaseService) {
     }
 
-    assetFolder: string = 'words';
-
     progressStep: number = 20;
     progress: number = 0;
     imageSrc: string = '';
     isTransitioning: boolean = false;
 
-    currentWord: string[] = [];
+    currentWord: Word = {name: ''};
+
     words: Word[] = [];
     guessingCharacterIndex: number = 0;
 
-    filesSelected: boolean = false; // flaga wskazująca, czy pliki zostały wybrane
     keyListener = (event: KeyboardEvent) => this.handleKeyPress(event);
 
     async ngOnInit(): Promise<void> {
@@ -43,17 +39,16 @@ export class MultiCharactersGameComponent implements OnInit, OnDestroy, OnChange
         }
     }
 
-    private loadImage(word: string): void {
+    private loadImage(word: Word): void {
         if (this.words) {
-            const file = Array.from(this.words)
-                .map(f => f.file)
-                .find(f => f.name.replace('.jpg', '').toUpperCase() === word.toUpperCase());
-            if (file) {
+            if (word.file) {
                 const reader = new FileReader();
                 reader.onload = (e: any) => {
                     this.imageSrc = e.target.result;
                 }
-                reader.readAsDataURL(file);
+                reader.readAsDataURL(word.file);
+            } else if (word.assetSource) {
+                this.imageSrc = word.assetSource;
             }
         }
     }
@@ -74,23 +69,27 @@ export class MultiCharactersGameComponent implements OnInit, OnDestroy, OnChange
         }
     }
 
-    private getRandomWord(): string[] {
+    async restoreToDefault() {
+        this.words = await this.wordDatabaseService.clear();
+        this.updateWord();
+    }
+
+    private getRandomWord(): Word {
         if (this.words.length <= 1) {
-            return this.words[0].name.split('');
+            return this.words[0];
         }
 
-        const currentWordAsString = this.currentWord.join('');
-        const availableCharactersWithoutCurrent = this.words
-            .filter(word => currentWordAsString !== word.name);
-        const randomIndex = Math.floor(Math.random() * availableCharactersWithoutCurrent.length);
-        return availableCharactersWithoutCurrent[randomIndex].name.split('');
+        const availableWordsWithoutCurrent = this.words
+            .filter(word => word !== this.currentWord);
+        const randomIndex = Math.floor(Math.random() * availableWordsWithoutCurrent.length);
+        return availableWordsWithoutCurrent[randomIndex];
     }
 
     private handleCorrectLetter(): void {
         this.playCharacter();
 
         this.guessingCharacterIndex++;
-        if (this.guessingCharacterIndex >= this.currentWord.length) {
+        if (this.guessingCharacterIndex >= this.currentWord.name.length) {
             this.handleCorrectWord();
         } else {
             this.updateCharacter();
@@ -116,9 +115,8 @@ export class MultiCharactersGameComponent implements OnInit, OnDestroy, OnChange
         this.guessingCharacterIndex = 0;
         this.currentWord = this.getRandomWord();
 
-        const currentWordAsString = this.currentWord.join('');
 
-        this.loadImage(currentWordAsString);
+        this.loadImage(this.currentWord);
 
         this.isTransitioning = false;
     }
@@ -126,7 +124,7 @@ export class MultiCharactersGameComponent implements OnInit, OnDestroy, OnChange
     private handleKeyPress(event: KeyboardEvent): void {
         if (!this.isTransitioning) {
             const pressedKey = event.key.toUpperCase();
-            const currentLetter = this.currentWord[this.guessingCharacterIndex];
+            const currentLetter = this.currentWord.name[this.guessingCharacterIndex];
             const characterDisplay: HTMLDivElement = document.getElementById('character-' + this.guessingCharacterIndex) as HTMLDivElement;
 
             if (pressedKey === currentLetter) {
@@ -147,7 +145,7 @@ export class MultiCharactersGameComponent implements OnInit, OnDestroy, OnChange
     }
 
     playCharacter(): void {
-        const audio = new Audio(`assets/letters/audio/${this.currentWord[this.guessingCharacterIndex]}.mp3`);
+        const audio = new Audio(`assets/letters/audio/${this.currentWord.name[this.guessingCharacterIndex]}.mp3`);
         if (audio) {
             audio.play();
         }
