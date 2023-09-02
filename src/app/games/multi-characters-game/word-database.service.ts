@@ -9,7 +9,25 @@ export class WordDatabaseService {
 
     defaultWords: Word[] = [
         {name: 'ARBUZ', assetSource: `assets/single-letter/images/A.jpg`},
-        {name: 'BALON', assetSource: `assets/single-letter/images/B.jpg`}
+        {name: 'BALON', assetSource: `assets/single-letter/images/B.jpg`},
+        {name: 'CIASTKO', assetSource: `assets/single-letter/images/C.jpg`},
+        {name: 'DOM', assetSource: `assets/single-letter/images/D.jpg`},
+        {name: 'EKRAN', assetSource: `assets/single-letter/images/E.jpg`},
+        {name: 'FOTEL', assetSource: `assets/single-letter/images/F.jpg`},
+        {name: 'GITARA ', assetSource: `assets/single-letter/images/G.jpg`},
+        {name: 'HAMAK', assetSource: `assets/single-letter/images/H.jpg`},
+        {name: 'JABŁKO ', assetSource: `assets/single-letter/images/J.jpg`},
+        {name: 'KOT', assetSource: `assets/single-letter/images/K.jpg`},
+        {name: 'LAMPA', assetSource: `assets/single-letter/images/L.jpg`},
+        {name: 'MLEKO', assetSource: `assets/single-letter/images/M.jpg`},
+        {name: 'OKNO ', assetSource: `assets/single-letter/images/O.jpg`},
+        {name: 'PIES ', assetSource: `assets/single-letter/images/P.jpg`},
+        {name: 'ROWER', assetSource: `assets/single-letter/images/R.jpg`},
+        {name: 'TORT ', assetSource: `assets/single-letter/images/T.jpg`},
+        {name: 'UL', assetSource: `assets/single-letter/images/U.jpg`},
+        {name: 'WODA ', assetSource: `assets/single-letter/images/W.jpg`},
+        {name: 'YETI ', assetSource: `assets/single-letter/images/Y.jpg`},
+        {name: 'ZAMEK', assetSource: `assets/single-letter/images/Z.jpg`},
     ];
 
 
