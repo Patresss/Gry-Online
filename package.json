@@ -9,7 +9,8 @@
     "build-lg": "ng build && babel ./dist/gry-online -d ./dist/gry-online",
     "deploy": "xcopy /s /e dist\\gry-online \\\\PatrykNas\\web\\Gry",
     "build-and-deploy": "ng build && && xcopy /s /e /y dist\\gry-online \\\\192.168.1.58\\web\\Gry",
-    "build-and-deploy-lg": "ng build && babel ./dist/gry-online -d ./dist/gry-online && xcopy /s /e /y /EXCLUDE:src\\assets\\list-of-excluded-files.txt dist\\gry-online \\\\PatrykNas\\web\\Gry",
+    "build-and-deploy-lg": "ng build && babel ./dist/gry-online -d ./dist/gry-online && xcopy /s /e /y /EXCLUDE:list-of-excluded-words.txt dist\\gry-online \\\\PatrykNas\\web\\Gry",
+    "build-and-deploy-lg-with-assets": "ng build && babel ./dist/gry-online -d ./dist/gry-online && xcopy /s /e /y /EXCLUDE:list-of-excluded-assets.txt dist\\gry-online \\\\PatrykNas\\web\\Gry",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -25,6 +26,7 @@
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
+    "idb-keyval": "^6.2.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

@@ -72,4 +72,14 @@
   height: 100vh;
 }
 
+.word-buttons {
+  padding-right: 20px;
+}
+
+.game-container-with-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
 

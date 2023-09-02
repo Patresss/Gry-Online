@@ -1,26 +1,39 @@
 <div class="game-window">
+
   <div class="game-content">
+
+
+
 
     <app-game-progress-bar [progress]="progress"></app-game-progress-bar>
 
-    <div class="game-container" >
+    <div class="game-container-with-buttons">
+      <div *ngIf="!filesSelected" class="word-buttons">
+        <input type="file" #fileInput (change)="onFilesSelected($event)" multiple style="display: none;">
+        <button mat-fab color="primary" aria-label="Example icon button with a browse icon" (click)="fileInput.click()">
+          <mat-icon>folder</mat-icon>
+        </button>
+      </div>
 
-      <mat-grid-list cols="4" rowHeight="2:3">
-        <mat-grid-tile [colspan]="1" [rowspan]="1">
-          <img priority="true" (click)="playSound()" ngSrc="{{imageSrc}}" alt="Character Image" class="character-image" fill=""/>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="3" [rowspan]="1">
-          <div (click)="playCharacter()" class="word-container">
+      <div class="game-container" >
+        <mat-grid-list cols="4" rowHeight="2:3">
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <img priority="true" ngSrc="{{imageSrc}}" alt="Character Image" class="character-image" fill=""/>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="3" [rowspan]="1">
+            <div (click)="playCharacter()" class="word-container">
               <ng-container *ngFor="let letter of currentWord; let i = index">
               <span class = "character-display" [id]="'character-' + i"
-                [class.notGuessed]="i > guessingCharacterIndex"
-                [class.guessed]="i < guessingCharacterIndex"
-                [class.current]="i === guessingCharacterIndex"
+                    [class.notGuessed]="i > guessingCharacterIndex"
+                    [class.guessed]="i < guessingCharacterIndex"
+                    [class.current]="i === guessingCharacterIndex"
               >{{ letter }}</span>
               </ng-container>
-          </div>
-        </mat-grid-tile>
-      </mat-grid-list>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+
     </div>
 
   </div>

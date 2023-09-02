@@ -18,6 +18,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import { MultiCharactersGameComponent } from './games/multi-characters-game/multi-characters-game.component';
 import { MemoryGameComponent } from './games/memory-game/memory-game.component';
+import {MatIconModule} from "@angular/material/icon";
 
 const routes: Routes = [
   {
@@ -84,7 +85,8 @@ const routes: Routes = [
     MatRippleModule,
     NgOptimizedImage,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
