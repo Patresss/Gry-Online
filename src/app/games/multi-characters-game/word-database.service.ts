@@ -16,7 +16,6 @@ export class WordDatabaseService {
         {name: 'FOTEL', assetSource: `assets/single-letter/images/F.jpg`},
         {name: 'GITARA', assetSource: `assets/single-letter/images/G.jpg`},
         {name: 'HAMAK', assetSource: `assets/single-letter/images/H.jpg`},
-        {name: 'JABŁKO', assetSource: `assets/single-letter/images/J.jpg`},
         {name: 'KOT', assetSource: `assets/single-letter/images/K.jpg`},
         {name: 'LAMPA', assetSource: `assets/single-letter/images/L.jpg`},
         {name: 'MLEKO', assetSource: `assets/single-letter/images/M.jpg`},
@@ -37,9 +36,13 @@ export class WordDatabaseService {
         for (const fileKey of await keys()) {
             const fileData = await get<ArrayBuffer>(fileKey);
             if (fileData) {
-                const blob = new Blob([fileData], {type: 'image/jpeg'});
-                const file = new File([blob], fileKey.toString(), {type: 'image/jpeg'});
-                words.push({file: file, name: fileKey.toString().replace('.jpg', '')})
+                const extension = fileKey.toString().toLowerCase().split(".").pop();
+                if (extension === "jpg" || extension === "jpeg") {
+                    console.log(extension)
+                    const blob = new Blob([fileData], {type: 'image/jpeg'});
+                    const file = new File([blob], fileKey.toString(), {type: 'image/jpeg'});
+                    words.push({file: file, name: this.asWord(fileKey.toString())})
+                }
             }
         }
 
@@ -59,13 +62,21 @@ export class WordDatabaseService {
             for (let i = 0; i < filesArray.length; i++) {
                 const file = filesArray[i];
                 if (file) {
-                    const fileData = await this.readFile(file);
-                    await set(file.name, fileData);
-                    words.push({file: file, name: file.name.replace('.jpg', '')})
+                    if (this.isJpg(file)) {
+                        const fileData = await this.readFile(file);
+                        await set(file.name, fileData);
+                        words.push({file: file, name: this.asWord(file.name)})
+                    }
                 }
             }
         }
         return words;
+    }
+
+    private isJpg(file: File) {
+        const extension = file.name.toString().toLowerCase().split(".").pop();
+        return extension === "jpg" || extension === "jpeg";
+
     }
 
     public async clear(): Promise<Word[]> {
@@ -82,6 +93,12 @@ export class WordDatabaseService {
             reader.onerror = reject;
             reader.readAsArrayBuffer(file);
         });
+    }
+
+    private asWord(fileName: string): string {
+        return fileName.toUpperCase()
+            .replace('.JPEG', '')
+            .replace('.JPG', '');
     }
 
 }

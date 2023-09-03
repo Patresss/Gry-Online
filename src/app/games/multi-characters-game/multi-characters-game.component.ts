@@ -88,13 +88,22 @@ export class MultiCharactersGameComponent implements OnInit, OnDestroy, OnChange
     private handleCorrectLetter(): void {
         this.playCharacter();
 
-        this.guessingCharacterIndex++;
+        do {
+            this.guessingCharacterIndex++;
+        } while (!this.isAlphanumeric(this.currentWord.name[this.guessingCharacterIndex]))
+
         if (this.guessingCharacterIndex >= this.currentWord.name.length) {
             this.handleCorrectWord();
         } else {
             this.updateCharacter();
         }
     }
+
+    private isAlphanumeric(char: string): boolean {
+        const regex = /^[a-zA-Z0-9]+$/i;
+        return regex.test(char);
+    }
+
 
     private handleCorrectWord(): void {
         this.progress += this.progressStep;
