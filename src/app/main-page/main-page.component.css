@@ -12,14 +12,14 @@
   width: 30vw;
   height: 230px;
   font-size: 36px;
-  background-color: #4A90E2;
+  background-color: #A8A2A9;
   color: white;
   text-decoration: none;
   border-radius: 8px;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
   line-height: initial;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .card-container:hover {
@@ -29,40 +29,40 @@
 
 /* Grupa 1: memory */
 .card-container.memory {
-  background: linear-gradient(135deg, #6B5B95, #956E96);
+  background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
 }
 
 .card-container.memory-small-letter {
-  background: linear-gradient(135deg, #8C759D, #AD88B0);
+  background: linear-gradient(135deg, #FF9A9A, #FFBDBD);
 }
 
 /* Grupa 2: letter */
 .card-container.letter {
-  background: linear-gradient(135deg, #4286f4, #67a2f8);
+  background: linear-gradient(135deg, #4CAF50, #66D37A);
 }
 
 .card-container.letter-small-letter {
-  background: linear-gradient(135deg, #6A9AE2, #8FB9EF);
+  background: linear-gradient(135deg, #80E090, #9EF1A6);
 }
 
 .card-container.letter-without-letter {
-  background: linear-gradient(135deg, #9DBEF1, #BAD5F5);
+  background: linear-gradient(135deg, #B0FFC2, #D4FFDF);
 }
 
 /* Grupa 3: digit */
 .card-container.digit {
-  background: linear-gradient(135deg, #E26D5C, #F08476);
+  background: linear-gradient(135deg, #FFC107, #FFDA4F);
 }
 
 .card-container.digit-without-digit {
-  background: linear-gradient(135deg, #F59B88, #F9B3A7);
+  background: linear-gradient(135deg, #FFE47A, #FFF2AC);
 }
 
 /* Grupa 4: word */
 .card-container.word {
-  background: linear-gradient(135deg, #65C273, #8BD491);
+  background: linear-gradient(135deg, #2196F3, #42A9FF);
 }
 
 .card-container.word-small-letter {
-  background: linear-gradient(135deg, #8FD6A7, #AADFB9);
+  background: linear-gradient(135deg, #64BFFF, #88D5FF);
 }
