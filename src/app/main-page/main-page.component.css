@@ -27,39 +27,42 @@
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Gradienty dla różnych kafelków */
+/* Grupa 1: memory */
 .card-container.memory {
-  background: linear-gradient(135deg, #E94E77, #D83367);
+  background: linear-gradient(135deg, #6B5B95, #956E96);
 }
 
 .card-container.memory-small-letter {
-  background: linear-gradient(135deg, #D83367, #E94E77);
+  background: linear-gradient(135deg, #8C759D, #AD88B0);
 }
 
+/* Grupa 2: letter */
 .card-container.letter {
-  background: linear-gradient(135deg, #4A90E2, #357ABD);
+  background: linear-gradient(135deg, #4286f4, #67a2f8);
 }
 
 .card-container.letter-small-letter {
-  background: linear-gradient(135deg, #357ABD, #4A90E2);
+  background: linear-gradient(135deg, #6A9AE2, #8FB9EF);
 }
 
 .card-container.letter-without-letter {
-  background: linear-gradient(135deg, #8bacd3, #4A90E2);
+  background: linear-gradient(135deg, #9DBEF1, #BAD5F5);
 }
 
+/* Grupa 3: digit */
 .card-container.digit {
-  background: linear-gradient(135deg, #2ecc71, #19ff00);
+  background: linear-gradient(135deg, #E26D5C, #F08476);
 }
 
 .card-container.digit-without-digit {
-  background: linear-gradient(135deg, #19ff00, #2ecc71);
+  background: linear-gradient(135deg, #F59B88, #F9B3A7);
 }
 
+/* Grupa 4: word */
 .card-container.word {
-  background: linear-gradient(135deg, #1abc9c, #00ffe3);
+  background: linear-gradient(135deg, #65C273, #8BD491);
 }
 
 .card-container.word-small-letter {
-  background: linear-gradient(135deg, #00ffe3, #1abc9c);
+  background: linear-gradient(135deg, #8FD6A7, #AADFB9);
 }
