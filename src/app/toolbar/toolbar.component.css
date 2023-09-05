@@ -1,27 +1,35 @@
 .toolbar {
   display: flex;
   align-items: center;
-  background-color: #3b92dc;
+  background: linear-gradient(135deg, #3b92dc, #1E88E5); /* gradientowy kolor tła */
   color: white;
-  height: 60px;
-  padding: 0 20px;
+  height: 70px; /* nieco większa wysokość dla bardziej luźnego wyglądu */
+  padding: 0 30px; /* większe wcięcia po bokach */
   font-weight: bold;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* delikatny cień pod paskiem narzędzi */
 }
 
 .home-link {
   color: white;
+  transition: opacity 0.3s ease; /* płynne przejście dla efektu hover */
 }
+
 .home-link:hover .fa-home {
-  opacity: 75%;
+  opacity: 0.75;
 }
 
 .icon-container {
   font-size: 24px;
-  margin-right: 10px;
+  margin-right: 20px; /* trochę większe odstępy */
 }
 
 .icon-container i {
   cursor: pointer;
+  transition: transform 0.3s ease; /* płynne przejście dla efektu hover */
+}
+
+.icon-container i:hover {
+  transform: scale(1.1); /* nieco przybliżona ikona podczas najechania kursorem */
 }
 
 .title-container {
@@ -31,5 +39,5 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 36px;
+  font-size: 38px; /* nieco większa czcionka dla tytułu */
 }

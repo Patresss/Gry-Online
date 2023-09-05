@@ -22,6 +22,11 @@
   height: calc((100vh - 140px - 80px) / 3);
   perspective: 1000px; // dodane dla efektu 3D podczas obrotu
   cursor: pointer;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 
   &.flipped .card-front {
     transform: rotateY(0deg);

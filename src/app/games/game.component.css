@@ -85,10 +85,16 @@
   }
 }
 
+.word-buttons button:hover {
+  background-color: #2a6ea6; /* Nieco ciemniejszy odcień */
+  transform: scale(1.05); /* Lekkie powiększenie */
+}
+
 .game-container-with-buttons {
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
+
 
 
