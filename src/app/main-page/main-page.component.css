@@ -1,4 +1,5 @@
 .main-page {
+  padding: 20px;
 }
 
 .card-container {
@@ -10,52 +11,55 @@
   text-align: center;
   width: 30vw;
   height: 230px;
-  font-size: 36px; /* Dostosuj wielkość tekstu */
-  background-color: #4fc0ff; /* Dostosuj kolor tła */
-  color: white; /* Dostosuj kolor tekstu */
-  text-decoration: none; /* Usuń domyślne podkreślenie */
-  border-radius: 8px; /* Dodaj zaokrąglenie krawędzi */
-  transition: background-color 0.2s, transform 0.2s; /* Dodałem efekty przejścia */
+  font-size: 36px;
+  background-color: #4A90E2;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
   line-height: initial;
-  text-shadow: 0px 0px 16px rgba(0, 0, 0, 0.8);
-}
-
-.card-container.memory {
-  background: #b92929;
-}
-
-.card-container.memory-small-letter {
-  background: #d06161;
-}
-
-.card-container.letter {
-  background: #2967b9;
-}
-
-.card-container.letter-small-letter {
-  background: #4a80ce;
-}
-
-.card-container.letter-without-letter {
-  background: #8bacd3;
-}
-
-.card-container.digit {
-  background: #19ff00;
-}
-
-.card-container.digit-without-digit {
-  background: #5fef50;
-}
-
-.card-container.word {
-  background: #00ffe3;
-}
-
-.card-container.word-small-letter {
-  background: #93fff3;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .card-container:hover {
-  transform: scale(1.05); /* Trochę przybliż na hoverze */
+  transform: scale(1.05);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Gradienty dla różnych kafelków */
+.card-container.memory {
+  background: linear-gradient(135deg, #E94E77, #D83367);
+}
+
+.card-container.memory-small-letter {
+  background: linear-gradient(135deg, #D83367, #E94E77);
+}
+
+.card-container.letter {
+  background: linear-gradient(135deg, #4A90E2, #357ABD);
+}
+
+.card-container.letter-small-letter {
+  background: linear-gradient(135deg, #357ABD, #4A90E2);
+}
+
+.card-container.letter-without-letter {
+  background: linear-gradient(135deg, #8bacd3, #4A90E2);
+}
+
+.card-container.digit {
+  background: linear-gradient(135deg, #2ecc71, #19ff00);
+}
+
+.card-container.digit-without-digit {
+  background: linear-gradient(135deg, #19ff00, #2ecc71);
+}
+
+.card-container.word {
+  background: linear-gradient(135deg, #1abc9c, #00ffe3);
+}
+
+.card-container.word-small-letter {
+  background: linear-gradient(135deg, #00ffe3, #1abc9c);
 }
