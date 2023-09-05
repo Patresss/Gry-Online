@@ -32,7 +32,7 @@
                     [class.notGuessed]="i > guessingCharacterIndex"
                     [class.guessed]="i < guessingCharacterIndex"
                     [class.current]="i === guessingCharacterIndex"
-              >{{ letter }}</span>
+              >{{ lowerCase ? letter.toLowerCase() : letter.toUpperCase() }}</span>
               </ng-container>
             </div>
           </mat-grid-tile>

@@ -2,25 +2,60 @@
 }
 
 .card-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+  width: 30vw;
+  height: 230px;
+  font-size: 36px; /* Dostosuj wielkość tekstu */
+  background-color: #4fc0ff; /* Dostosuj kolor tła */
+  color: white; /* Dostosuj kolor tekstu */
+  text-decoration: none; /* Usuń domyślne podkreślenie */
+  border-radius: 8px; /* Dodaj zaokrąglenie krawędzi */
+  transition: background-color 0.2s, transform 0.2s; /* Dodałem efekty przejścia */
+  line-height: initial;
+  text-shadow: 0px 0px 16px rgba(0, 0, 0, 0.8);
+}
 
-    cursor: pointer;
-    text-align: center;
+.card-container.memory {
+  background: #b92929;
+}
 
-    width: 40vw;
-    height: 300px;
-    font-size: 36px; /* Dostosuj wielkość tekstu */
-    background-color: #4fc0ff; /* Dostosuj kolor tła */
-    color: white; /* Dostosuj kolor tekstu */
-    text-decoration: none; /* Usuń domyślne podkreślenie */
-    border-radius: 8px; /* Dodaj zaokrąglenie krawędzi */
-    transition: background-color 0.2s, transform 0.2s; /* Dodałem efekty przejścia */
+.card-container.memory-small-letter {
+  background: #d06161;
+}
+
+.card-container.letter {
+  background: #2967b9;
+}
+
+.card-container.letter-small-letter {
+  background: #4a80ce;
+}
+
+.card-container.letter-without-letter {
+  background: #8bacd3;
+}
+
+.card-container.digit {
+  background: #19ff00;
+}
+
+.card-container.digit-without-digit {
+  background: #5fef50;
+}
+
+.card-container.word {
+  background: #00ffe3;
+}
+
+.card-container.word-small-letter {
+  background: #93fff3;
 }
 
 .card-container:hover {
-    background-color: #2980b9; /* Zmiana koloru tła na hoverze */
-    transform: scale(1.05); /* Trochę przybliż na hoverze */
+  transform: scale(1.05); /* Trochę przybliż na hoverze */
 }

@@ -44,12 +44,17 @@
   text-shadow: 0px 10px 16px rgba(0, 0, 0, 0.5);
 }
 
+.single-character-display.hide {
+  color: transparent;
+  text-shadow: none;
+}
+
 .character-display.notGuessed {
   color: rgba(128, 128, 128, 0.25);
 }
 
 .character-display.current {
-  color: gray;
+  color: rgb(128, 128, 128);
   text-decoration: underline;
 }
 

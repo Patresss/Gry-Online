@@ -10,7 +10,7 @@
         <img  ngSrc="{{imageSrc}}" alt="Character Image" class="character-image" fill=""/>
       </mat-grid-tile>
       <mat-grid-tile [colspan]="charactersColspan" [rowspan]="1">
-        <div class="character-display single-character-display" id="character-display" tabindex="0">{{ currentCharacter }}</div>
+        <div [ngClass]="'character-display single-character-display ' + (hideCharacter ? 'hide' : '')" id="character-display" tabindex="0">{{ currentCharacter }}</div>
       </mat-grid-tile>
     </mat-grid-list>
     </div>

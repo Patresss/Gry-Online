@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MemoryService} from "./memory.service";
 import {MEMORY_LEVELS, MemoryCard, MemoryLevel} from "./memory.model";
 import {MatDialog} from "@angular/material/dialog";
 import {GameDialogComponent} from "../../game-dialog/game-dialog.component";
+import {WordDatabaseService} from "../multi-characters-game/word-database.service";
+import {ActivatedRouteSnapshot, NavigationEnd, Router} from "@angular/router";
+import {filter} from "rxjs";
 
 @Component({
   selector: 'app-memory-game',
@@ -17,9 +20,23 @@ export class MemoryGameComponent implements OnInit {
   currentLevel: MemoryLevel = MEMORY_LEVELS[0];
   progress: number = 0;
   progressStep: number = 100.0 / MEMORY_LEVELS.length;
+  @Input() lowerCase: boolean = false;
 
   constructor(private memoryService: MemoryService,
-              public dialog: MatDialog) {}
+              public dialog: MatDialog, private router: Router) {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      let currentRoute = this.router.routerState.snapshot.root;
+      while (currentRoute) {
+        if (currentRoute.data && currentRoute.data['lowerCase']) {
+          this.lowerCase = currentRoute.data['lowerCase'];
+          break;
+        }
+        currentRoute = currentRoute.firstChild as ActivatedRouteSnapshot;
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.resetGame();
@@ -106,7 +123,7 @@ export class MemoryGameComponent implements OnInit {
   }
 
   playCharacter(cardName: string): void {
-    const audio = new Audio(`assets/letters/audio/${cardName}.mp3`);
+    const audio = new Audio(`assets/letters/audio/${cardName.toUpperCase()}.mp3`);
     audio.play();
   }
 

@@ -12,7 +12,7 @@
       <div class="card-face card-front">
         <div class="card-face card-front">
           <div class="card-text">
-            {{card.imageName}}
+            {{lowerCase ? card.imageName.toLowerCase() : card.imageName.toUpperCase()}}
           </div>
           <img [src]="card.imageUrl" alt="Memory Card">
         </div>

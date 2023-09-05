@@ -20,6 +20,9 @@ import { MultiCharactersGameComponent } from './games/multi-characters-game/mult
 import { MemoryGameComponent } from './games/memory-game/memory-game.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {SingleSmallLetterGameComponent} from "./games/single-letter-game/single-small-letter-game.component";
+import {SingleLetterHideLetterGameComponent} from "./games/single-letter-game/single-letter-hide-letter-game.component";
+import {SingleDigitHideDigitGameComponent} from "./games/single-digit-game/single-digit-hide-digit-game.component";
 
 const routes: Routes = [
   {
@@ -30,7 +33,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'pojedyncza-litera',
+    path: 'literki-na-klawiaturze',
     component: SingleLetterGameComponent,
 
     data: {
@@ -38,11 +41,34 @@ const routes: Routes = [
     }
   },
   {
-    path: 'pojedyncza-cyfra',
+    path: 'male-literki-na-klawiaturze',
+    component: SingleSmallLetterGameComponent,
+    data: {
+      title: 'Małe literki na klawiaturze'
+    }
+  },
+  {
+    path: 'literki-na-klawiaturze-z-samym-obrazkiem',
+    component: SingleLetterHideLetterGameComponent,
+
+    data: {
+      title: 'Literki na klawiaturze z samym obrazkiem'
+    }
+  },
+  {
+    path: 'cyfry-na-klawiaturze',
     component: SingleDigitGameComponent,
 
     data: {
-      title: 'Cyferki na klawiaturze'
+      title: 'Cyfry na klawiaturze'
+    }
+  },
+  {
+    path: 'cyfry-na-klawiaturze-z-samym-obrazkiem',
+    component: SingleDigitHideDigitGameComponent,
+
+    data: {
+      title: 'Cyfry na klawiaturze z samym obrazkiem'
     }
   },
   {
@@ -54,11 +80,28 @@ const routes: Routes = [
     }
   },
   {
+    path: 'wyrazy-male-litery',
+    component: MultiCharactersGameComponent,
+    data: {
+      title: 'Wyrazy - małe litery',
+      lowerCase: true
+    }
+  },
+  {
     path: 'memory',
     component: MemoryGameComponent,
-
     data: {
       title: 'Memory'
+    }
+  },
+
+  {
+    path: 'memory-male-litery',
+    component: MemoryGameComponent,
+    data: {
+      title: 'Memory',
+      lowerCase: true
+
     }
   },
 ];
@@ -68,7 +111,10 @@ const routes: Routes = [
     AppComponent,
     SingleCharacterGameComponent,
     SingleLetterGameComponent,
+    SingleSmallLetterGameComponent,
+    SingleLetterHideLetterGameComponent,
     SingleDigitGameComponent,
+    SingleDigitHideDigitGameComponent,
     ToolbarComponent,
     MainPageComponent,
     GameProgressBarComponent,

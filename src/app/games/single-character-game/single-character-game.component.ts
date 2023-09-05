@@ -14,6 +14,8 @@ export class SingleCharacterGameComponent implements OnInit, OnDestroy, OnChange
   @Input() availableCharacters: string = '';
   @Input() assetFolder: string = '';
   @Input() charactersColspan: number = 2;
+  @Input() lowerCase: boolean = false;
+  @Input() hideCharacter: boolean = false;
 
   progressStep: number = 10;
   progress: number = 0;
@@ -46,7 +48,8 @@ export class SingleCharacterGameComponent implements OnInit, OnDestroy, OnChange
   private getRandomCharacter(): string {
     const availableCharactersWithoutCurrentCharacter = this.availableCharacters.replace(this.currentCharacter, '');
     const randomIndex = Math.floor(Math.random() * availableCharactersWithoutCurrentCharacter.length);
-    return availableCharactersWithoutCurrentCharacter[randomIndex];
+    const randomCharacter = availableCharactersWithoutCurrentCharacter[randomIndex];
+    return this.lowerCase ? randomCharacter.toLowerCase() : randomCharacter.toUpperCase();
   }
 
   private handleCorrect(): void {
@@ -60,12 +63,8 @@ export class SingleCharacterGameComponent implements OnInit, OnDestroy, OnChange
 
   private updateCharacter(): void {
     this.currentCharacter = this.getRandomCharacter();
-    const characterDisplay: HTMLDivElement = document.getElementById('character-display') as HTMLDivElement;
-    characterDisplay.classList.remove("correct");
-
     this.playSound();
-
-    this.imageSrc = `assets/${this.assetFolder}/images/${this.currentCharacter}.jpg`;
+    this.imageSrc = `assets/${this.assetFolder}/images/${this.currentCharacter.toUpperCase()}.jpg`;
     this.isTransitioning = false;
   }
 
@@ -75,12 +74,15 @@ export class SingleCharacterGameComponent implements OnInit, OnDestroy, OnChange
       const currentLetter = this.currentCharacter;
       const characterDisplay: HTMLDivElement = document.getElementById('character-display') as HTMLDivElement;
 
-      if (pressedKey === currentLetter) {
+      if (pressedKey === currentLetter.toUpperCase()) {
         this.isTransitioning = true;
         characterDisplay.classList.remove("wrong");
         characterDisplay.classList.add("correct");
         setTimeout(() => {
-          this.handleCorrect();
+          characterDisplay.classList.remove("correct");
+          setTimeout(() => {
+            this.handleCorrect();
+          }, this.hideCharacter ? 500 : 0);
         }, 500);
       } else {
         characterDisplay.classList.add("wrong");
@@ -92,7 +94,7 @@ export class SingleCharacterGameComponent implements OnInit, OnDestroy, OnChange
   }
 
   public playSound(): void {
-    const audio = new Audio(`assets/${this.assetFolder}/audio/${this.currentCharacter}.mp3`);
+    const audio = new Audio(`assets/${this.assetFolder}/audio/${this.currentCharacter.toUpperCase()}.mp3`);
     audio.play();
   }
 
