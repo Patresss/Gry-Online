@@ -1,27 +1,46 @@
-# GryOnline
+# Gry Online
+The open-source website with educational games for children to learn letters and numbers: https://gry.patres.dev
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+![](https://github.com/Patresss/Gry-Online/blob/main/screenshots/main.PNG)
 
-## Development server
+## Games
+* Guessing letters (uppercase, lowercase, based on a picture)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+![](https://github.com/Patresss/Gry-Online/blob/main/screenshots/litery.PNG)
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Guessing numbers (displayed and based on a picture)
 
-## Build
+![](https://github.com/Patresss/Gry-Online/blob/main/screenshots/cyfry.PNG)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+* Guessing words (uppercase and lowercase letters)
 
-## Running unit tests
+![](https://github.com/Patresss/Gry-Online/blob/main/screenshots/wyrazy.PNG)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+* Guessing own words - we can upload them (uppercase and lowercase letters)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+![](https://github.com/Patresss/Gry-Online/blob/main/screenshots/wyrazy%20wlasne.PNG)
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* Memory game (uppercase and lowercase letters)
+
+![](https://github.com/Patresss/Gry-Online/blob/main/screenshots/memory.PNG)
+
+
+## Running
+```
+ng serve
+```
+
+## Known issues
+* The site is not responsive; it was designed for a computer.
+
+## Donate me
+
+* [Buy me a coffee](https://www.buymeacoffee.com/Patres)
+* [Paypal](https://www.paypal.me/Patresssss)
+
+## License
+
+This project is licensed under the Apache License 2.0 
