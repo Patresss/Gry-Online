@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
 import {RouterModule, RouterOutlet, Routes} from "@angular/router";
 import { MainPageComponent } from './main-page/main-page.component';
 import {SingleCharacterGameComponent} from "./games/single-character-game/single-character-game.component";
@@ -11,9 +10,7 @@ import {SingleDigitGameComponent} from "./games/single-digit-game/single-digit-g
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatRippleModule} from "@angular/material/core";
-import { GameProgressBarComponent } from './game-progress-bar/game-progress-bar.component';
 import {NgOptimizedImage} from "@angular/common";
-import { GameDialogComponent } from './game-dialog/game-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import { MultiCharactersGameComponent } from './games/multi-characters-game/multi-characters-game.component';
@@ -23,6 +20,10 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {SingleSmallLetterGameComponent} from "./games/single-letter-game/single-small-letter-game.component";
 import {SingleLetterHideLetterGameComponent} from "./games/single-letter-game/single-letter-hide-letter-game.component";
 import {SingleDigitHideDigitGameComponent} from "./games/single-digit-game/single-digit-hide-digit-game.component";
+import {ToolbarComponent} from "./component/toolbar/toolbar.component";
+import {GameProgressBarComponent} from "./component/game-progress-bar/game-progress-bar.component";
+import {GameDialogComponent} from "./dialog/game-dialog/game-dialog.component";
+import {InfoDialogComponent} from "./dialog/info-dialog/info-dialog.component";
 
 const routes: Routes = [
   {
@@ -118,8 +119,8 @@ const routes: Routes = [
     ToolbarComponent,
     MainPageComponent,
     GameProgressBarComponent,
-    GameProgressBarComponent,
     GameDialogComponent,
+    InfoDialogComponent,
     MultiCharactersGameComponent,
     MemoryGameComponent,
   ],

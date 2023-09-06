@@ -9,12 +9,12 @@
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* delikatny cień pod paskiem narzędzi */
 }
 
-.home-link {
+.tooltip-icon {
   color: white;
   transition: opacity 0.3s ease; /* płynne przejście dla efektu hover */
 }
 
-.home-link:hover .fa-home {
+.tooltip-icon:hover .fa-home {
   opacity: 0.75;
 }
 

@@ -1,6 +1,6 @@
 import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from "@angular/core";
 import {MatDialog} from "@angular/material/dialog";
-import {GameDialogComponent} from "../../game-dialog/game-dialog.component";
+import {GameDialogComponent} from "../../dialog/game-dialog/game-dialog.component";
 
 @Component({
   selector: 'app-single-character-game',

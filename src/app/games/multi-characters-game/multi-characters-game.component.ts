@@ -1,10 +1,10 @@
 import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {GameDialogComponent} from "../../game-dialog/game-dialog.component";
 import {WordDatabaseService} from "./word-database.service";
 import {Word} from "./word.model";
 import {ActivatedRouteSnapshot, NavigationEnd, Router} from "@angular/router";
 import {filter} from "rxjs";
+import {GameDialogComponent} from "../../dialog/game-dialog/game-dialog.component";
 
 @Component({
   selector: 'app-multi-characters-game',

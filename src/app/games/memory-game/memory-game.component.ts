@@ -2,10 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MemoryService} from "./memory.service";
 import {MEMORY_LEVELS, MemoryCard, MemoryLevel} from "./memory.model";
 import {MatDialog} from "@angular/material/dialog";
-import {GameDialogComponent} from "../../game-dialog/game-dialog.component";
-import {WordDatabaseService} from "../multi-characters-game/word-database.service";
 import {ActivatedRouteSnapshot, NavigationEnd, Router} from "@angular/router";
 import {filter} from "rxjs";
+import {GameDialogComponent} from "../../dialog/game-dialog/game-dialog.component";
 
 @Component({
   selector: 'app-memory-game',

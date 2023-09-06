@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {ActivatedRouteSnapshot, NavigationEnd, Router} from "@angular/router";
 import {filter} from "rxjs";
+import {MatDialog} from "@angular/material/dialog";
+import {InfoDialogComponent} from "../../dialog/info-dialog/info-dialog.component";
 
 @Component({
   selector: 'app-toolbar',
@@ -8,9 +10,9 @@ import {filter} from "rxjs";
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent {
-  pageTitle: string = 'Gry Online 1.11';
+  pageTitle: string = 'Gry Online';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, public dialog: MatDialog) {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
@@ -20,7 +22,7 @@ export class ToolbarComponent {
 
   private updatePageTitle() {
     let currentRoute = this.router.routerState.snapshot.root;
-    let title = 'Gry Online  1.11';
+    let title = 'Gry Online';
 
     while (currentRoute) {
       if (currentRoute.data && currentRoute.data['title']) {
@@ -31,5 +33,20 @@ export class ToolbarComponent {
     }
 
     this.pageTitle = title;
+  }
+
+  openInfo() {
+    const dialogRef = this.dialog.open(InfoDialogComponent, {
+      width: '300px',
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '500ms',
+      data: {
+        dialogTitle: 'Informacje!'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
   }
 }

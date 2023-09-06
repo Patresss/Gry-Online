@@ -1,11 +1,17 @@
 <div class="toolbar">
   <div class="icon-container">
-    <a routerLink="/" class="home-link">
+    <a routerLink="/" class="tooltip-icon">
       <i class="fas fa-home"></i>
     </a>
   </div>
   <div class="title-container">
     <div>{{ pageTitle }}</div>
   </div>
+  <div class="icon-container" matTooltip="Informacje">
+    <a class="tooltip-icon" (click)="openInfo()" >
+      <i class="fas fa-info"></i>
+    </a>
+  </div>
+
   <div class="spacer"></div>
 </div>
