@@ -34,26 +34,26 @@ const routes: Routes = [
     }
   },
   {
-    path: 'literki-na-klawiaturze',
+    path: 'litery-na-klawiaturze',
     component: SingleLetterGameComponent,
 
     data: {
-      title: 'Literki na klawiaturze'
+      title: 'Litery na klawiaturze'
     }
   },
   {
-    path: 'male-literki-na-klawiaturze',
+    path: 'male-litery-na-klawiaturze',
     component: SingleSmallLetterGameComponent,
     data: {
-      title: 'Małe literki na klawiaturze'
+      title: 'Małe litery na klawiaturze'
     }
   },
   {
-    path: 'literki-na-klawiaturze-z-samym-obrazkiem',
+    path: 'litery-na-klawiaturze-z-samym-obrazkiem',
     component: SingleLetterHideLetterGameComponent,
 
     data: {
-      title: 'Literki na klawiaturze z samym obrazkiem'
+      title: 'Litery na klawiaturze z samym obrazkiem'
     }
   },
   {

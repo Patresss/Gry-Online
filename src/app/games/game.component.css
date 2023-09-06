@@ -1,6 +1,6 @@
 .game-window {
   background-color: #e3faff;
-  min-height: calc(100vh - 60px); /* 60px bo navbar*/
+  min-height: calc(100vh - 80px); /* 80px bo navbar*/
   display: flex;
   flex-direction: column;
   align-items: center;
