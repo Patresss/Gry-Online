@@ -17,8 +17,6 @@ import { MultiCharactersGameComponent } from './games/multi-characters-game/mult
 import { MemoryGameComponent } from './games/memory-game/memory-game.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatTooltipModule} from "@angular/material/tooltip";
-import {SingleSmallLetterGameComponent} from "./games/single-letter-game/single-small-letter-game.component";
-import {SingleLetterHideLetterGameComponent} from "./games/single-letter-game/single-letter-hide-letter-game.component";
 import {SingleDigitHideDigitGameComponent} from "./games/single-digit-game/single-digit-hide-digit-game.component";
 import {ToolbarComponent} from "./component/toolbar/toolbar.component";
 import {GameProgressBarComponent} from "./component/game-progress-bar/game-progress-bar.component";
@@ -43,17 +41,19 @@ const routes: Routes = [
   },
   {
     path: 'male-litery-na-klawiaturze',
-    component: SingleSmallLetterGameComponent,
+    component: SingleLetterGameComponent,
     data: {
-      title: 'Małe litery na klawiaturze'
+      title: 'Małe litery na klawiaturze',
+      lowerCase: true
     }
   },
   {
     path: 'litery-na-klawiaturze-z-samym-obrazkiem',
-    component: SingleLetterHideLetterGameComponent,
+    component: SingleLetterGameComponent,
 
     data: {
-      title: 'Litery na klawiaturze z samym obrazkiem'
+      title: 'Litery na klawiaturze z samym obrazkiem',
+      hideCharacter: true
     }
   },
   {
@@ -112,8 +112,6 @@ const routes: Routes = [
     AppComponent,
     SingleCharacterGameComponent,
     SingleLetterGameComponent,
-    SingleSmallLetterGameComponent,
-    SingleLetterHideLetterGameComponent,
     SingleDigitGameComponent,
     SingleDigitHideDigitGameComponent,
     ToolbarComponent,
