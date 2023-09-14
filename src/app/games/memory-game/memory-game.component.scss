@@ -19,7 +19,7 @@
 .memory-card {
   margin: 10px 10px 10px 10px;
   aspect-ratio: 1 / 1;
-  height: calc((100vh - 140px - 80px) / 3);
+  height: calc((100vh - 140px - 100px) / 3);
   perspective: 1000px;
   cursor: pointer;
   transition: transform 0.3s;
