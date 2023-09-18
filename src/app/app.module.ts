@@ -28,7 +28,7 @@ const routes: Routes = [
     path: '',
     component: MainPageComponent,
     data: {
-      title: 'Gry Online'
+      title: 'Edukacyjne Gry Online'
     }
   },
   {

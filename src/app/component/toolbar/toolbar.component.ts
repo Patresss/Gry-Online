@@ -10,7 +10,7 @@ import {InfoDialogComponent} from "../../dialog/info-dialog/info-dialog.componen
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent {
-  pageTitle: string = 'Gry Online';
+  pageTitle: string = 'Edukacyjne Gry Online';
 
   constructor(private router: Router, public dialog: MatDialog) {
     this.router.events.pipe(
@@ -22,7 +22,7 @@ export class ToolbarComponent {
 
   private updatePageTitle() {
     let currentRoute = this.router.routerState.snapshot.root;
-    let title = 'Gry Online';
+    let title = 'Edukacyjne Gry Online';
 
     while (currentRoute) {
       if (currentRoute.data && currentRoute.data['title']) {
