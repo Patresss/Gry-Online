@@ -1,4 +1,4 @@
-# Gry Online
+# Edukacyjne Gry Online
 The open-source website with educational games for children to learn letters and numbers: https://gry.patres.dev
 
 ![](https://github.com/Patresss/Gry-Online/blob/main/screenshots/main.PNG)
