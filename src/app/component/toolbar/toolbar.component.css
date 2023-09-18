@@ -14,18 +14,19 @@
   transition: opacity 0.3s ease; /* płynne przejście dla efektu hover */
 }
 
-.tooltip-icon:hover .fa-home {
+.icon-container:hover {
   opacity: 0.75;
 }
 
 .icon-container {
   font-size: 24px;
-  margin-right: 20px; /* trochę większe odstępy */
+  padding: 10px 10px 10px 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* płynne przejście dla efektu hover */
 }
 
 .icon-container i {
   cursor: pointer;
-  transition: transform 0.3s ease; /* płynne przejście dla efektu hover */
 }
 
 .icon-container i:hover {
