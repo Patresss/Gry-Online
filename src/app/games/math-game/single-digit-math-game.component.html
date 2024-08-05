@@ -3,14 +3,17 @@
 
     <app-game-progress-bar [progress]="progress"></app-game-progress-bar>
 
-    <div class="game-container" (click)="playSound()">
+    <div class="game-container">
 
-    <mat-grid-list cols="4" rowHeight="2:3">
+    <mat-grid-list cols="5" rowHeight="2:3">
       <mat-grid-tile [colspan]="3" [rowspan]="1">
-        <div [ngClass]="'character-display single-character-display ' + (hideCharacter ? 'hide' : '')" id="equation" tabindex="0">{{ currentCharacter }}</div>
+        <div [ngClass]="'character-display single-character-display'" id="equation" tabindex="0">{{ currentMathEquation.equation }}</div>
       </mat-grid-tile>
       <mat-grid-tile [colspan]="1" [rowspan]="1">
-        <div [ngClass]="'character-display single-character-display ' + (hideCharacter ? 'hide' : '')" id="character-display" tabindex="0">{{ currentCharacter }}</div>
+        <div [ngClass]="'character-display single-character-display'" >=</div>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div [ngClass]="'character-display single-character-display ' + (hideCharacter ? 'hide' : '')" id="character-display" tabindex="0">{{ currentMathEquation.result }}</div>
       </mat-grid-tile>
     </mat-grid-list>
     </div>

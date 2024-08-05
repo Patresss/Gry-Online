@@ -12,7 +12,7 @@ export class MathService {
       for (let j = 0; j <= 9; j++) {
         const result = i + j;
         if (result <= 9) {
-          let mathEquation : MathEquation = {equation:  `${i} + ${j}`, result: result };
+          let mathEquation : MathEquation = {equation:  `${i}+${j}`, result: result };
           equations.push(mathEquation);
         }
       }

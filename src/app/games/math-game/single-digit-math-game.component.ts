@@ -15,37 +15,18 @@ import {MathEquation} from "./math.model";
 export class SingleDigitMathGameComponent implements OnInit, OnDestroy, OnChanges {
 
   constructor(private mathService: MathService,
-              public dialog: MatDialog,
-              private router: Router) {
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      let currentRoute = this.router.routerState.snapshot.root;
-      while (currentRoute) {
-        if (currentRoute.data && currentRoute.data['lowerCase']) {
-          this.lowerCase = currentRoute.data['lowerCase'];
-          break;
-        }
-        currentRoute = currentRoute.firstChild as ActivatedRouteSnapshot;
-      }
-    });
-  }
+              public dialog: MatDialog) {
+    };
 
-  mathEquations: MathEquation[] = this.mathService.generateAddTo9equationsList();
-  availableCharacters: string = this.mathService.generateAddTo9equationsList()[0].equation;
-  assetFolder: string = 'single-digit';
+  availableMathEquations: MathEquation[] = this.mathService.generateAddTo9equationsList();
+  currentMathEquation: MathEquation = this.getRandomMathEquation();
 
-  @Input() charactersColspan: number = 2;
-  @Input() lowerCase: boolean = false;
-  @Input() hideCharacter: boolean = false;
+  hideCharacter: boolean = true;
 
   progressStep: number = 10;
   progress: number = 0;
-  currentCharacter: string = '';
-  imageSrc: string = '';
   isTransitioning: boolean = false;
   keyListener = (event: KeyboardEvent) => this.handleKeyPress(event);
-
 
 
   ngOnInit(): void {
@@ -55,7 +36,7 @@ export class SingleDigitMathGameComponent implements OnInit, OnDestroy, OnChange
 
   initGame(): void {
     this.progress = 0;
-    this.updateCharacter();
+    this.updateMathEquation();
   }
 
   ngOnDestroy() {
@@ -69,11 +50,9 @@ export class SingleDigitMathGameComponent implements OnInit, OnDestroy, OnChange
     }
   }
 
-  private getRandomCharacter(): string {
-    const availableCharactersWithoutCurrentCharacter = this.availableCharacters.replace(this.currentCharacter, '');
-    const randomIndex = Math.floor(Math.random() * availableCharactersWithoutCurrentCharacter.length);
-    const randomCharacter = availableCharactersWithoutCurrentCharacter[randomIndex];
-    return this.lowerCase ? randomCharacter.toLowerCase() : randomCharacter.toUpperCase();
+  private getRandomMathEquation(): MathEquation {
+    const randomIndex = Math.floor(Math.random() * this.availableMathEquations.length);
+    return this.availableMathEquations[randomIndex];
   }
 
   private handleCorrect(): void {
@@ -81,24 +60,22 @@ export class SingleDigitMathGameComponent implements OnInit, OnDestroy, OnChange
     if (this.progress >= 100) {
       this.openDialog();
     } else {
-      this.updateCharacter();
+      this.updateMathEquation();
     }
   }
 
-  private updateCharacter(): void {
-    this.currentCharacter = this.getRandomCharacter();
-    this.playSound();
-    this.imageSrc = `assets/${this.assetFolder}/images/${this.currentCharacter.toUpperCase()}.jpg`;
+  private updateMathEquation(): void {
+    this.currentMathEquation = this.getRandomMathEquation();
     this.isTransitioning = false;
   }
 
   private handleKeyPress(event: KeyboardEvent): void {
     if (!this.isTransitioning) {
       const pressedKey = event.key.toUpperCase();
-      const currentLetter = this.currentCharacter;
+      const currentDigit = this.currentMathEquation.result.toString();
       const characterDisplay: HTMLDivElement = document.getElementById('character-display') as HTMLDivElement;
 
-      if (pressedKey === currentLetter.toUpperCase()) {
+      if (pressedKey === currentDigit) {
         this.isTransitioning = true;
         characterDisplay.classList.remove("wrong");
         characterDisplay.classList.add("correct");
@@ -117,10 +94,6 @@ export class SingleDigitMathGameComponent implements OnInit, OnDestroy, OnChange
     }
   }
 
-  public playSound(): void {
-    const audio = new Audio(`assets/${this.assetFolder}/audio/${this.currentCharacter.toUpperCase()}.mp3`);
-    audio.play();
-  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(GameDialogComponent, {
@@ -136,5 +109,6 @@ export class SingleDigitMathGameComponent implements OnInit, OnDestroy, OnChange
       this.initGame();
     });
   }
+
 
 }
