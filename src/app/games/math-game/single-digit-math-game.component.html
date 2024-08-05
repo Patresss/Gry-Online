@@ -1,0 +1,21 @@
+<div class="game-window">
+  <div class="game-content">
+
+    <app-game-progress-bar [progress]="progress"></app-game-progress-bar>
+
+    <div class="game-container" (click)="playSound()">
+
+    <mat-grid-list cols="4" rowHeight="2:3">
+      <mat-grid-tile [colspan]="3" [rowspan]="1">
+        <div [ngClass]="'character-display single-character-display ' + (hideCharacter ? 'hide' : '')" id="equation" tabindex="0">{{ currentCharacter }}</div>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div [ngClass]="'character-display single-character-display ' + (hideCharacter ? 'hide' : '')" id="character-display" tabindex="0">{{ currentCharacter }}</div>
+      </mat-grid-tile>
+    </mat-grid-list>
+    </div>
+
+
+
+  </div>
+</div>

@@ -66,3 +66,8 @@
 .card-container.word-small-letter {
   background: linear-gradient(135deg, #64BFFF, #88D5FF);
 }
+
+/* Grupa 5: Math */
+.card-container.math-to-9-add {
+  background: linear-gradient(135deg, #9f21f3, #d042ff);
+}

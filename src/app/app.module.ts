@@ -22,6 +22,7 @@ import {ToolbarComponent} from "./component/toolbar/toolbar.component";
 import {GameProgressBarComponent} from "./component/game-progress-bar/game-progress-bar.component";
 import {GameDialogComponent} from "./dialog/game-dialog/game-dialog.component";
 import {InfoDialogComponent} from "./dialog/info-dialog/info-dialog.component";
+import {SingleDigitMathGameComponent} from "./games/math-game/single-digit-math-game.component";
 
 const routes: Routes = [
   {
@@ -89,6 +90,14 @@ const routes: Routes = [
     }
   },
   {
+    path: 'dodawanie-do-9',
+    component: SingleDigitMathGameComponent,
+
+    data: {
+      title: 'Dodawanie do 9'
+    }
+  },
+  {
     path: 'memory',
     component: MemoryGameComponent,
     data: {
@@ -121,6 +130,7 @@ const routes: Routes = [
     InfoDialogComponent,
     MultiCharactersGameComponent,
     MemoryGameComponent,
+    SingleDigitMathGameComponent,
   ],
   imports: [
     BrowserModule,
