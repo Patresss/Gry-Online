@@ -1,9 +1,6 @@
 import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from "@angular/core";
 import {MatDialog} from "@angular/material/dialog";
 import {GameDialogComponent} from "../../dialog/game-dialog/game-dialog.component";
-import {MemoryService} from "../memory-game/memory.service";
-import {ActivatedRouteSnapshot, NavigationEnd, Router} from "@angular/router";
-import {filter} from "rxjs";
 import {MathService} from "./math.service";
 import {MathEquation} from "./math.model";
 
@@ -18,7 +15,7 @@ export class SingleDigitMathGameComponent implements OnInit, OnDestroy, OnChange
               public dialog: MatDialog) {
     };
 
-  availableMathEquations: MathEquation[] = this.mathService.generateAddTo9equationsList();
+  @Input() availableMathEquations: MathEquation[] = this.mathService.generateAddTo9equationsList();
   currentMathEquation: MathEquation = this.getRandomMathEquation();
 
   hideCharacter: boolean = true;
