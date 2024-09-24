@@ -1,6 +1,4 @@
 import {Component} from "@angular/core";
-import {MatDialog} from "@angular/material/dialog";
-import {WordDatabaseService} from "../multi-characters-game/word-database.service";
 import {ActivatedRouteSnapshot, NavigationEnd, Router} from "@angular/router";
 import {filter} from "rxjs";
 

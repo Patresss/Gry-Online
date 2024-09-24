@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { MemoryCard } from './memory.model';
+import {Injectable} from '@angular/core';
+import {MemoryCard, MemoryType} from './memory.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,15 +32,16 @@ export class MemoryService {
     'Z',
   ];
 
-  generateCards(numberOfPairs: number): MemoryCard[] {
+  generateCards(numberOfPairs: number, memoryType: MemoryType): MemoryCard[] {
     let cards: MemoryCard[] = [];
 
     this.shuffle(this.images)
       .slice(0, numberOfPairs)
       .forEach((name, index) => {
-          let card1: MemoryCard = { id: index * 2, imageUrl: `assets/single-letter/images/${name}.jpg`, imageName: name, isFlipped: false, isHidden: false };
-          let card2: MemoryCard = { id: index * 2 + 1, imageUrl: `assets/single-letter/images/${name}.jpg`, imageName: name, isFlipped: false, isHidden: false };
-
+          let nameCard1 = memoryType == MemoryType.LOWER_CASE ? name.toLowerCase() : name.toUpperCase();
+          let nameCard2 = memoryType == MemoryType.UPPER_CASE ? name.toUpperCase() : name.toLowerCase();
+          let card1: MemoryCard = { id: index * 2, imageUrl: `assets/single-letter/images/${name}.jpg`, imageName: nameCard1, isFlipped: false, isHidden: false };
+          let card2: MemoryCard = { id: index * 2 + 1, imageUrl: `assets/single-letter/images/${name}.jpg`, imageName: nameCard2, isFlipped: false, isHidden: false };
           cards.push(card1, card2);
     });
 

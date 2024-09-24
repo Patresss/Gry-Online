@@ -25,6 +25,7 @@ import {InfoDialogComponent} from "./dialog/info-dialog/info-dialog.component";
 import {SingleDigitMathAddingGameComponent} from "./games/math-game/single-digit-math-adding-game.component";
 import {SingleDigitMathGameComponent} from "./games/math-game/single-digit-math-game.component";
 import {SingleDigitMathSubtractionGameComponent} from "./games/math-game/single-digit-math-subtraction-game.component";
+import {MemoryType} from "./games/memory-game/memory.model";
 
 const routes: Routes = [
   {
@@ -120,8 +121,16 @@ const routes: Routes = [
     component: MemoryGameComponent,
     data: {
       title: 'Memory',
-      lowerCase: true
+      memoryType: MemoryType.LOWER_CASE
+    }
+  },
 
+  {
+    path: 'memory-duze-male-litery',
+    component: MemoryGameComponent,
+    data: {
+      title: 'Memory',
+      memoryType: MemoryType.MIX_CASE
     }
   },
 ];

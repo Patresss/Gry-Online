@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MemoryService} from "./memory.service";
-import {MEMORY_LEVELS, MemoryCard, MemoryLevel} from "./memory.model";
+import {MEMORY_LEVELS, MemoryCard, MemoryLevel, MemoryType} from "./memory.model";
 import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRouteSnapshot, NavigationEnd, Router} from "@angular/router";
 import {filter} from "rxjs";
@@ -19,7 +19,7 @@ export class MemoryGameComponent implements OnInit {
   currentLevel: MemoryLevel = MEMORY_LEVELS[0];
   progress: number = 0;
   progressStep: number = 100.0 / MEMORY_LEVELS.length;
-  @Input() lowerCase: boolean = false;
+  @Input() memoryType: MemoryType = MemoryType.UPPER_CASE;
 
   constructor(private memoryService: MemoryService,
               public dialog: MatDialog, private router: Router) {
@@ -28,8 +28,8 @@ export class MemoryGameComponent implements OnInit {
     ).subscribe(() => {
       let currentRoute = this.router.routerState.snapshot.root;
       while (currentRoute) {
-        if (currentRoute.data && currentRoute.data['lowerCase']) {
-          this.lowerCase = currentRoute.data['lowerCase'];
+        if (currentRoute.data && currentRoute.data['memoryType']) {
+          this.memoryType = currentRoute.data['memoryType'];
           break;
         }
         currentRoute = currentRoute.firstChild as ActivatedRouteSnapshot;
@@ -97,7 +97,7 @@ export class MemoryGameComponent implements OnInit {
 
   private loadLevel(): void {
     this.rowCards = [];
-    this.cards = this.memoryService.generateCards(this.currentLevel.numberOfPairs);
+    this.cards = this.memoryService.generateCards(this.currentLevel.numberOfPairs, this.memoryType);
 
     for (let i = 0; i < this.cards.length; i += this.currentLevel.cardsInRow) {
       this.rowCards.push(this.cards.slice(i, i + this.currentLevel.cardsInRow));

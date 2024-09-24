@@ -11,7 +11,7 @@
            [ngClass]="{'flipped': card.isFlipped || card.isHidden, 'hidden': card.isHidden}">
         <div class="card-face card-front">
           <div class="card-text">
-            {{lowerCase ? card.imageName.toLowerCase() : card.imageName.toUpperCase()}}
+            {{ card.imageName }}
           </div>
           <img [src]="card.imageUrl" alt="Memory Card">
         </div>

@@ -20,3 +20,9 @@ export const MEMORY_LEVELS: MemoryLevel[] = [
   { level: 3, numberOfPairs: 6, cardsInRow: 4},
 ];
 
+export enum MemoryType {
+  UPPER_CASE = "UPPER_CASE",
+  LOWER_CASE = "LOWER_CASE",
+  MIX_CASE = "MIX_CASE"
+}
+
