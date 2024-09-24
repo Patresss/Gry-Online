@@ -24,6 +24,7 @@ import {GameDialogComponent} from "./dialog/game-dialog/game-dialog.component";
 import {InfoDialogComponent} from "./dialog/info-dialog/info-dialog.component";
 import {SingleDigitMathAddingGameComponent} from "./games/math-game/single-digit-math-adding-game.component";
 import {SingleDigitMathGameComponent} from "./games/math-game/single-digit-math-game.component";
+import {SingleDigitMathSubtractionGameComponent} from "./games/math-game/single-digit-math-subtraction-game.component";
 
 const routes: Routes = [
   {
@@ -99,6 +100,14 @@ const routes: Routes = [
     }
   },
   {
+    path: 'odejmowanie-do-9',
+    component: SingleDigitMathSubtractionGameComponent,
+
+    data: {
+      title: 'Odejmowanie do 9'
+    }
+  },
+  {
     path: 'memory',
     component: MemoryGameComponent,
     data: {
@@ -132,6 +141,7 @@ const routes: Routes = [
     MultiCharactersGameComponent,
     MemoryGameComponent,
     SingleDigitMathAddingGameComponent,
+    SingleDigitMathSubtractionGameComponent,
     SingleDigitMathGameComponent,
   ],
   imports: [

@@ -71,3 +71,7 @@
 .card-container.math-to-9-add {
   background: linear-gradient(135deg, #9f21f3, #d042ff);
 }
+
+.card-container.math-to-9-subtraction {
+  background: linear-gradient(135deg, #be7ee8, #e9acfb);
+}
