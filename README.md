@@ -28,6 +28,7 @@ The open-source website with educational games for children to learn letters and
 ![](https://github.com/Patresss/Gry-Online/blob/main/screenshots/memory.PNG)
 
 * Mathematical games
+![](https://github.com/Patresss/Gry-Online/blob/main/screenshots/dodawanie.PNG)
 
 ## Running
 ```
